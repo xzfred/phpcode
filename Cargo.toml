@@ -4,6 +4,5 @@ version = "0.1.0"
 authors = ["徐智 <xuzhi@gmail.com>"]
 
 [dependencies]
-iron = "0.5"
-rustc-serialize = "0.3"
-router = "0.5"
+rocket = { path = "../lib/Rocket/lib" }
+rocket_codegen = { path = "../lib/Rocket/codegen" }

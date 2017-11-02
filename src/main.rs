@@ -1,25 +1,21 @@
+#![feature(plugin, decl_macro)]
+#![plugin(rocket_codegen)]
 
-extern crate iron;
-extern crate rustc_serialize;
-extern crate router;
+extern crate rocket;
 
-use iron::prelude::*;
-use iron::status;
-use iron::mime::Mime;
-use rustc_serialize::json;
-use router::Router;
+#[cfg(test)] mod tests;
 
-fn main() {
-    let mut router = Router::new();
-    router.get("/", handler, "index");
-
-    println!("Listening on localhost:3009");
-    Iron::new(router).http("localhost:3009").ok();
+#[get("/")]
+fn hello() -> &'static str {
+    "Hello, world!"
 }
 
-fn handler(req: &mut Request) -> IronResult<Response> {
-    let out = "{\"status\": \"OK\"}\n\n\r\n\r\n";
+#[get("/<name>/<age>")]
+fn hello_who(name: String, age: u8) -> String {
+    format!("Hello, {} year old named {}!", age, name)
+}
 
-    let content_type = "application/json".parse::<Mime>().expect("Failed to parse content type");
-    Ok(Response::with((content_type, status::Ok, out)))
+fn main() {
+    //rocket::ignite().mount("/", routes![hello]).launch();
+    rocket::ignite().mount("/hello", routes![hello_who]).launch();
 }
