@@ -6,3 +6,4 @@ authors = ["徐智 <xuzhi@gmail.com>"]
 [dependencies]
 rocket = { path = "../lib/Rocket/lib" }
 rocket_codegen = { path = "../lib/Rocket/codegen" }
+rocket_contrib = { path = "../lib/Rocket/contrib" }
