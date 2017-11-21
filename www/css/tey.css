@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+.ld_wrap { height:421px; background: #5B616D;}
+.ld_head { position:relative; margin:0 auto; width:900px; height:421px; background: #5B616D url(../images/login_bj.jpg) no-repeat;}
+.login , .register { position:absolute; top:225px; left:90px; width:700px; height:300px; background:#FFF; border:1px solid #E2E2E2; box-shadow: 1px 1px 2px #888888;}
+.login_container { margin:50px 0 0 60px; _margin:50px 0 0 30px; width:340px; border-right:1px solid #CCC; float:left;}
+.login_input { padding-left:35px; *padding-top:5px;  width:244px; height:35px; line-height:35px; background:url(../images/input_bj1.jpg) no-repeat; border:none;color:#909090; clear:both; font: normal 14px/24px "Microsoft Yahei","冬青黑体简体中文 w3","宋体"; outline:medium none; }
+.login_pass { background:url(../images/input_bj2.jpg) no-repeat;}
+.login_container dl { margin-bottom:15px; *margin-bottom:10px;  font: normal 14px/24px "Microsoft Yahei","冬青黑体简体中文 w3","宋体";}
+.ch_word { width:175px; float:left;}
+.login_sider { padding:70px 0 0 20px; width:270px; text-align:center; float:left;}
+.login_sider h2 { margin-bottom:20px; font-size:15px; color:#999;}
+.login_sider h2 a { color:#43A9D8;}
+.login_sider h3 { margin-bottom:20px; font-size:14px; color:#999; text-align:center;}
+.login_sider dl dt { margin-left:20px; width:100px; float:left;}
+
+.recomm { margin:120px auto 0 auto; width:720px;}
+.recomm_list li { margin-left:18px; _margin-left:15px; text-align:center; float:left;}
+.recomm h1 { margin-bottom:15px; font-size:14px; color:#43A9DA;}
+.recomm_img img { margin-bottom:10px; padding:1px; width:63px; height:63px; border-radius:50px; border:1px solid #DDE8F2; box-shadow: 1px 1px 2px #888888;}
+
+.explain { margin:40px auto 0 auto; width:880px;}
+.explain .ex_list li { padding-left:20px; padding-right:10px; width:256px; border-right:1px solid #E2E2E2; float:left;}
+.ex_l_img1,.ex_l_img2,.ex_l_img3 { margin-right:10px; width:50px; height:50px; background:url(../images/but5.jpg) no-repeat; float:left;}
+.ex_l_img2 { background:url(../images/but6.jpg) no-repeat;}
+.ex_l_img3 { background:url(../images/but7.jpg) no-repeat;}
+.ex_l_tex { padding-top:3px; font-size:14px;}
+.ex_em { font-size:12px;}
+.explain .ex_list .ex_cler { border-right:none;}
+
+.register { height:400px; background:#FFF; border:1px solid #E2E2E2; box-shadow: 1px 1px 2px #888888;}
+.reg_input {background:url(../images/reg_1.jpg) no-repeat; }
+.reg_name {background:url(../images/reg_2.jpg) no-repeat;}
+.reg_pass {background:url(../images/reg_3.jpg) no-repeat;}
+.reg_qpass {background:url(../images/reg_4.jpg) no-repeat;}
+.reg_word { width:200px; float:none;}
+.reg_word  span { color:#43A9D8;}
+.reg_container { margin:30px 0 0 30px; _margin:30px 0 0 20px; width:440px;}
+.reg_container  h3 { margin-bottom:10px; font-size:16px;}
+
+.reg_dd { position:relative;}
+.reg_txt { position:absolute; top:1px; left:280px;  width:170px; }
+.reg_tt { position:absolute; top:3px; left:-20px; margin-right:5px; width:16px; float:left;}
+.reg_but { margin-top:10px; clear:both;}
+.reg_t { width:130px; float:left;}
+.reg_container dl { clear:both;}
+.reg_txet { top:8px;}
+.reg_ttt { top:1px;}
+.reg_sider { padding:70px 0 0 20px; width:200px; _width:190px;  float:left;}
+.reg_sider h2 { margin-bottom:20px; font-size:15px; color:#999;}
+.reg_sider h2 a { color:#43A9D8;}
+.reg_sider h3 { margin-bottom:20px; font-size:14px; color:#999; }
+.reg_sider_dd  dt{ margin-bottom:5px; }

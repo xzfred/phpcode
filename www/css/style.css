@@ -1,0 +1,25 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* Reset */
+/* html { FILTER: gray; }  */
+html { color:#666666;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;}
+fieldset,button,img { border:0;}
+
+/* Basic Elements */
+body { background:#F8F8F8; color:#444; font: normal 14px/24px "Microsoft Yahei","冬青黑体简体中文 w3","宋体";}
+div,ul,li { font-size:12px; color:#444; line-height:160%;}
+ul,li { list-style:none;}
+a { color:#444; text-decoration:none;}
+a:hover { text-decoration:none;}
+
+/* Generic Classes */
+.clear { height:0; overflow:hidden; clear:both;}
+
+.clearfix:after { content:"."; display:block; height:0; visibility:hidden; clear:both;}
+.clearfix {display: inline-block;} /* Hides from IE-mac \*/ 
+* html .clearfix {height: 1%;} 
+.clearfix {display: block;} /* End hide from IE-mac */
+
+
+
