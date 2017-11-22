@@ -1,12 +1,12 @@
-use rocket::{self, Request, Route, Data, Catcher, Error};
-use rocket::response::Redirect;
+use rocket::{self, Request, /* Route, Data, Catcher, Error */};
+//use rocket::response::Redirect;
 use rocket_contrib::Template;
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use rocket::response::NamedFile;
-use rocket::handler::Outcome;
-use rocket::http::Method::*;
-use rocket::http::{Status, RawStr};
+//use rocket::handler::Outcome;
+//use rocket::http::Method::*;
+//use rocket::http::{Status, RawStr};
 
 #[derive(Serialize)]
 struct TemplateContext {
@@ -14,6 +14,7 @@ struct TemplateContext {
     items: Vec<String>
 }
 
+/*
 fn forward(req: &Request, data: Data) -> Outcome<'static> {
     //Outcome::forward(data)
     let param = req.uri()
@@ -24,6 +25,7 @@ fn forward(req: &Request, data: Data) -> Outcome<'static> {
 
     Outcome::from(req, RawStr::from_str(param).url_decode())
 }
+*/
 
 #[get("/<file..>", rank = 2)]
 fn files(file: PathBuf) -> Option<NamedFile> {
@@ -31,10 +33,17 @@ fn files(file: PathBuf) -> Option<NamedFile> {
 }
 
 #[get("/")]
-fn index() -> Redirect {
-    Redirect::to("/hello/Unknown")
+fn index() -> Template {
+    //Redirect::to("/hello/Unknown")
+    let context = TemplateContext {
+        name: "xuzhi".to_string(),
+        items: vec!["One", "Two", "Three"].iter().map(|s| s.to_string()).collect()
+    };
+
+    Template::render("index", &context)
 }
 
+/*
 #[get("/hello/<name>", rank = 1)]
 fn get(name: String) -> Template {
     let context = TemplateContext {
@@ -44,6 +53,7 @@ fn get(name: String) -> Template {
 
     Template::render("index", &context)
 }
+*/
 
 #[error(404)]
 fn not_found(req: &Request) -> Template {
@@ -55,7 +65,7 @@ fn not_found(req: &Request) -> Template {
 pub fn rocket() -> rocket::Rocket {
     //let always_forward = Route::ranked(1, Get, "/", forward);
     rocket::ignite()
-        .mount("/", routes![index, get, files])
+        .mount("/", routes![index, files])
         //.mount("/", vec![always_forward])
         //.mount("/hello", routes![get])
         .attach(Template::fairing())
