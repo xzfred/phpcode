@@ -22,7 +22,6 @@ fn forward(req: &Request, data: Data) -> Outcome<'static> {
         //.split_at(6)
         //.1
         ;
-
     Outcome::from(req, RawStr::from_str(param).url_decode())
 }
 */
@@ -42,6 +41,17 @@ fn index() -> Template {
 
     Template::render("index", &context)
 }
+
+#[get("/login")]
+fn login() -> Template {
+    let context = TemplateContext {
+        name: "xuzhi".to_string(),
+        items: vec!["One", "Two", "Three"].iter().map(|s| s.to_string()).collect()
+    };
+
+    Template::render("login", &context)
+}
+
 
 /*
 #[get("/hello/<name>", rank = 1)]
@@ -65,7 +75,7 @@ fn not_found(req: &Request) -> Template {
 pub fn rocket() -> rocket::Rocket {
     //let always_forward = Route::ranked(1, Get, "/", forward);
     rocket::ignite()
-        .mount("/", routes![index, files])
+        .mount("/", routes![index, files, login])
         //.mount("/", vec![always_forward])
         //.mount("/hello", routes![get])
         .attach(Template::fairing())

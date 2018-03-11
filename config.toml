@@ -2,7 +2,7 @@
 host = "localhost"
 port = 3306
 user = "phpcode"
-password = "phpcode!"
+password = "phpcode"
 db = "phpcode"
 
 
