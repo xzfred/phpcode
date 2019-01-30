@@ -7,21 +7,24 @@ authors = ["徐智 <xuzhi@gmail.com>"]
 # rocket = { path = "../lib/Rocket/lib" }
 # rocket_codegen = { path = "../lib/Rocket/codegen" }
 # rocket_contrib = { path = "../lib/Rocket/contrib" }
-rocket = "0.3.6"
-rocket_codegen = "0.3.6"
+# rocket = "0.3.6"
+# rocket_codegen = "0.3.6"
 # rocket_contrib = "*"
-rustache = "*"
-serde = "1.0"
-serde_derive = "1.0"
-serde_json = "1.0"
+# rustache = "*"
+# serde = "1.0"
+# serde_derive = "1.0"
+# serde_json = "1.0"
+handlebars = "1.1.0"
+env_logger = "0.6"
+actix = "0.7.9"
+actix-web = "0.7.18"
+toml = "0.4.*"
 
-toml = "*"
-
-[dependencies.rocket_contrib]
+# [dependencies.rocket_contrib]
 # path = "../lib/Rocket/contrib"
-version = "*"
-default-features = false
-features = ["handlebars_templates"]
+# version = "*"
+# default-features = false
+# features = ["handlebars_templates"]
 
 [dependencies.mysql]
 version = "*"
