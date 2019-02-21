@@ -5,15 +5,22 @@
 extern crate actix;
 extern crate actix_web;
 extern crate env_logger;
-#[macro_use]
-extern crate json;
+#[macro_use] extern crate json;
 extern crate proclist;
+extern crate log4rs;
+#[macro_use] extern crate log;
+extern crate mysql;
+#[macro_use] extern crate serde_derive;
 
 mod sql_builder;
+
+mod base;
 
 use sql_builder::insert::Insert;
 
 use actix_web::{middleware, server, App, HttpRequest, HttpResponse, fs};
+
+// use log::{info};
 
 /// simple handle
 fn index(req: &HttpRequest) -> HttpResponse {
@@ -24,12 +31,22 @@ fn index(req: &HttpRequest) -> HttpResponse {
 }
 
 fn main() {
-    ::std::env::set_var("RUST_LOG", "actix_web=info");
-    env_logger::init();
+    ::std::env::set_var("RUST_LOG", "all");
+    // env_logger::init();
+    // log4rs::init_file("config/log4rs.yaml", Default::default()).unwrap();
+    info!("beging start!");
     // json_test();
+    // web();
+    conn();
 
     dbg!(Insert::new().to_string());
     dbg!(Insert::new());
+}
+
+fn conn() {
+    let cfg = base::config::Config::new();
+    let my = base::db::MyPool::new(&cfg.database);
+    my.new_user();
 }
 
 fn web() {

@@ -1,0 +1,22 @@
+refresh_rate: 1 seconds
+appenders:
+  stdout:
+    kind: console
+  requests:
+    kind: file
+    path: "log/requests.log"
+    encoder:
+      # pattern: "{d} - {m}{n}"
+      pattern: "actix"
+root:
+  level: info
+  appenders:
+    - stdout
+loggers:
+  app::backend::db:
+    level: info
+  app::requests:
+    level: info
+    appenders:
+      - requests
+    additive: false

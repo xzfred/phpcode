@@ -21,12 +21,13 @@ impl MyPool {
 
     pub fn new_user(&self) {
         let mut conn = self.0.get_conn().unwrap();
-        // let q = conn.query(r#"
-        //     insert into usr_info 
-        //         (uname, email, pass, salt) 
-        //     values 
-        //         ('phpcode', 'my@phpcode.com', 'phpcode', 'xxx---uuu')
-        // "#).unwrap();
+        let q = conn.query(r#" delete from usr_info where uname='phpcode' ").unwrap();
+        let q = conn.query(r#"
+            insert into usr_info 
+                (uname, email, pass, salt) 
+            values 
+                ('phpcode', 'my@phpcode.com', 'phpcode', 'xxx---uuu')
+        "#).unwrap();
     }
 }
 
