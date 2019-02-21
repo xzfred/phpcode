@@ -1,4 +1,5 @@
 use mysql as my;
+use mysql::prelude::FromValue;
 use base::config::Database;
 
 pub struct MyPool(my::Pool);
@@ -21,13 +22,29 @@ impl MyPool {
 
     pub fn new_user(&self) {
         let mut conn = self.0.get_conn().unwrap();
-        let q = conn.query(r#" delete from usr_info where uname='phpcode' ").unwrap();
-        let q = conn.query(r#"
+        {
+            let _q = conn.query(r#" delete from usr_info where email='my@phpcode.com' "#).unwrap();
+        }
+        {
+            let _q = conn.query(r#"
             insert into usr_info 
                 (uname, email, pass, salt) 
             values 
-                ('phpcode', 'my@phpcode.com', 'phpcode', 'xxx---uuu')
+                ('phpcode智', 'my@phpcode.com', 'phpcode', 'xxx---uuu')
         "#).unwrap();
+        }
+
+        let q = conn.query(r#"select uname,email from usr_info"#).unwrap();
+
+        dbg!(q.info());
+        dbg!(q.column_indexes());
+        // dbg!(q);
+        for row in q {
+            let columns = row.unwrap().unwrap();
+            for val in columns {
+                dbg!(String::from_value(val));
+            }
+        }
     }
 }
 

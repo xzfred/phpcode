@@ -39,8 +39,8 @@ fn main() {
     // web();
     conn();
 
-    dbg!(Insert::new().to_string());
-    dbg!(Insert::new());
+    // dbg!(Insert::new().to_string());
+    // dbg!(Insert::new());
 }
 
 fn conn() {
